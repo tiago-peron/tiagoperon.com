@@ -9,5 +9,5 @@ export const EXTERNAL_LINKS = {
   imageUrl: '/tiago-peron.jpg',
   siteUrl: environment.siteUrl,
 
-  simplePayDemo: 'https://simplepay.tiagoperon.com/docs.html#tag/transaction/POST/transfer',
+  simplePayDemo: 'https://simplepay.tiagoperon.com/docs.html',
 } as const;
