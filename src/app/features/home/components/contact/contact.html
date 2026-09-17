@@ -9,18 +9,17 @@
       Aberto para projetos freelance, oportunidades em tempo integral e colaborações técnicas. Me
       mande uma mensagem - eu respondo rápido. ⚡
     </p>
-    <a href="mailto:tperons@gmail.com" class="btn-primary-custom mb-5">
+    <a [href]="'mailto:' + links.email" class="btn btn-portfolio btn-portfolio-solid mb-5">
       <i class="bi bi-envelope-fill me-2"></i>
       <span class="__cf_email__" data-cfemail="e59c8a90978088848c89a5809d8488958980cb868a88">
         [email&#160;protected]
       </span>
     </a>
     <div class="mt-4">
-      <a href="https://linkedin.com/in/tperons" class="social-link" target="_blank"
-         title="Linkedin">
+      <a [href]="links.linkedin" class="social-link" target="_blank" rel="noopener" title="Linkedin">
         <i class="bi bi-linkedin"></i>
       </a>
-      <a href="https://github.com/tperons" class="social-link" target="_blank" title="GitHub">
+      <a [href]="links.github" class="social-link" target="_blank" rel="noopener" title="GitHub">
         <i class="bi bi-github"></i>
       </a>
     </div>

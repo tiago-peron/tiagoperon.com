@@ -1,31 +1,34 @@
+@use 'mixins' as m;
+@use 'tokens' as t;
+
 #hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
   padding-top: 6rem;
-  background: radial-gradient(ellipse 60% 50% at 80% 40%, rgba(var(--purple-rgb), 0.08) 0%, transparent 70%),
-  radial-gradient(ellipse 40% 40% at 10% 70%, rgba(var(--green-rgb), 0.06) 0%, transparent 60%),
+  background: radial-gradient(ellipse 60% 50% at 80% 40%, rgba(var(--accent-rgb), 0.08) 0%, transparent 70%),
+  radial-gradient(ellipse 40% 40% at 10% 70%, rgba(var(--highlight-rgb), 0.06) 0%, transparent 60%),
   var(--bg);
 }
 
 .hero-label {
   font-family: var(--font-mono), sans-serif;
   font-size: 0.78rem;
-  color: var(--green);
+  color: var(--highlight);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin-bottom: 1.25rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-}
 
-.hero-label::before {
-  content: "";
-  display: inline-block;
-  width: 32px;
-  height: 1px;
-  background: var(--green);
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--highlight);
+  }
 }
 
 .hero-headline {
@@ -35,18 +38,18 @@
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
-}
 
-.hero-headline .line-1 {
-  color: var(--text);
-}
+  .line-1 {
+    color: var(--text);
+  }
 
-.hero-headline .line-2 {
-  color: var(--purple);
-}
+  .line-2 {
+    color: var(--accent);
+  }
 
-.hero-headline .line-3 {
-  color: var(--cyan);
+  .line-3 {
+    color: var(--accent-alt);
+  }
 }
 
 .hero-sub {
@@ -61,7 +64,7 @@
   display: inline-block;
   width: 3px;
   height: 1em;
-  background: var(--green);
+  background: var(--highlight);
   vertical-align: text-bottom;
   animation: blink 1s step-end infinite;
 }
@@ -88,15 +91,7 @@
   position: relative;
   overflow: hidden;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #bd93f9, #8be9fd, #9d2b4e);
-  }
+  @include m.top-gradient-bar();
 
   .ln {
     color: #6272a4;
@@ -131,7 +126,7 @@
 }
 
 /* ─── Responsive ─────────────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: t.$bp-md) {
   #hero {
     padding-top: 5rem;
   }

@@ -1,6 +1,5 @@
 export interface TechBadge {
   name: string;
-  color: 'cyan' | 'green' | 'purple' | 'orange' | 'pink' | 'red';
 }
 
 export interface Project {

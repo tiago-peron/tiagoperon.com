@@ -1,6 +1,6 @@
-import {Component, HostListener, inject, signal} from '@angular/core';
-import {ActiveSectionService} from '../../core/services/active-section';
-import {ThemeService} from '../../core/services/theme';
+import { Component, HostListener, inject, signal } from '@angular/core';
+import { ActiveSectionService } from '../../core/services/active-section';
+import { ThemeService } from '../../core/services/theme';
 
 @Component({
   selector: 'app-navbar',

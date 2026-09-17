@@ -1,3 +1,5 @@
+@use 'mixins' as m;
+
 #about {
   padding: 7rem 0;
   background: var(--bg);
@@ -10,16 +12,7 @@
   border: 1px solid rgba(var(--muted-rgb), 0.2);
   aspect-ratio: 1 / 1;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #bd93f9, #8be9fd, #9d2b4e);
-    z-index: 2;
-  }
+  @include m.top-gradient-bar($z: 2);
 }
 
 .about-photo {
@@ -30,13 +23,13 @@
 }
 
 .about-card {
-  background: var(--bg3);
-  border: 1px solid rgba(var(--muted-rgb), 0.2);
-  border-radius: 12px;
+  --bs-card-bg: var(--bg3);
+  --bs-card-border-color: rgba(var(--muted-rgb), 0.2);
+  --bs-card-border-radius: 12px;
+  overflow: hidden;
   padding: 2.5rem;
   position: relative;
-  overflow: hidden;
-  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  @include m.theme-transition();
 
   &::after {
     content: "";
@@ -45,7 +38,7 @@
     left: 0;
     width: 4px;
     height: 100%;
-    background: linear-gradient(180deg, var(--purple), var(--cyan));
+    background: linear-gradient(180deg, var(--accent), var(--accent-alt));
   }
 }
 
@@ -61,7 +54,7 @@
     font-family: var(--font-mono), sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--purple);
+    color: var(--accent);
     display: block;
   }
 

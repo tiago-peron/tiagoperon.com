@@ -1,0 +1,30 @@
+@use 'tokens' as t;
+
+@mixin entrance-transition($duration: 1.0s) {
+  transition: opacity $duration ease,
+  transform $duration ease;
+}
+
+@mixin theme-transition($duration: t.$transition-base) {
+  transition: background-color $duration ease,
+  color $duration ease,
+  border-color $duration ease,
+  background $duration ease,
+  transform $duration ease,
+  box-shadow $duration ease;
+}
+
+@mixin top-gradient-bar($height: 3px, $z: null) {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $height;
+    background: linear-gradient(90deg, #bd93f9, #8be9fd, #9d2b4e);
+    @if ($z) {
+      z-index: $z;
+    }
+  }
+}

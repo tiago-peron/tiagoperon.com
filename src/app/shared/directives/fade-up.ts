@@ -1,4 +1,4 @@
-import {AfterViewInit, Directive, ElementRef, inject} from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, inject } from '@angular/core';
 
 @Directive({
   selector: '[appFadeUp]',
@@ -16,7 +16,7 @@ export class FadeUp implements AfterViewInit {
           }
         });
       },
-      {threshold: 0.12}
+      { threshold: 0.12 },
     );
     observer.observe(this.el.nativeElement);
   }

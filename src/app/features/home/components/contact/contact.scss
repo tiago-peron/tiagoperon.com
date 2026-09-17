@@ -1,3 +1,5 @@
+@use 'mixins' as m;
+
 #contact {
   padding: 7rem 0 4rem;
   background: var(--bg3);
@@ -23,12 +25,12 @@
   font-size: 1.35rem;
   margin: 0 0.5rem;
   text-decoration: none;
-  transition: all 0.25s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  @include m.theme-transition();
 
   &:hover {
-    border-color: var(--purple);
-    color: var(--purple);
-    background: rgba(var(--purple-rgb), 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.1);
     transform: translateY(-4px);
   }
 }

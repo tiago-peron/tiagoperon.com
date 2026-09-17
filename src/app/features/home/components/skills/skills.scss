@@ -1,69 +1,41 @@
+@use 'mixins' as m;
+
 #skills {
   padding: 7rem 0;
-  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(var(--cyan-rgb), 0.04) 0%, transparent 70%),
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(var(--accent-alt-rgb), 0.04) 0%, transparent 70%),
   var(--bg2);
 }
 
 .skill-card {
-  background: var(--bg);
-  border: 1px solid rgba(var(--cyan-rgb), 0.15);
-  border-radius: 10px;
-  padding: 1.75rem 1.5rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+  --bs-card-bg: var(--bg);
+  --bs-card-border-color: rgba(var(--accent-alt-rgb), 0.15);
+  --bs-card-border-radius: 10px;
   height: 100%;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #bd93f9, #8be9fd, #9d2b4e);
-  }
+  overflow: hidden;
+  padding: 1.75rem 1.5rem;
+  position: relative;
+  text-align: center;
+  @include m.theme-transition();
+  @include m.top-gradient-bar();
 
   &:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    border-color: var(--cyan);
-  }
-
-  .icon {
-    font-size: 2.75rem;
-    margin-top: 0.25rem;
-    margin-bottom: 0.75rem;
-    display: block;
-  }
-
-  .name {
-    font-family: var(--font-mono), sans-serif;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: 0.05em;
-  }
-
-  .level {
-    margin-top: 0.75rem;
-    height: 3px;
-    background: rgba(var(--muted-rgb), 0.25);
-    border-radius: 99px;
-    overflow: hidden;
-  }
-
-  .level-fill {
-    height: 100%;
-    border-radius: 99px;
-    background: linear-gradient(90deg, var(--cyan), var(--purple));
-    width: 0;
-    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-
+    border-color: var(--accent-alt);
   }
 }
 
-.fade-up.visible .skill-card .level-fill {
-  width: var(--pct);
+.icon {
+  font-size: 2.75rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.name {
+  font-family: var(--font-mono), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.05em;
 }

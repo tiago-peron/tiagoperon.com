@@ -1,29 +1,36 @@
-import {computed, effect, Injectable, signal} from '@angular/core';
+import { afterNextRender, computed, effect, Injectable, signal } from '@angular/core';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class ThemeService {
-  private systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)');
-  private systemIsLight = signal(this.systemPrefersLight.matches);
-  pref = signal(localStorage.getItem('theme') ?? 'auto');
+  private systemIsLight = signal(true);
+  pref = signal<'light' | 'dark' | 'auto'>('auto');
 
   resolved = computed(() =>
-    this.pref() === 'auto'
-      ? (this.systemIsLight() ? 'light' : 'dark')
-      : this.pref()
+    this.pref() === 'auto' ? (this.systemIsLight() ? 'light' : 'dark') : this.pref(),
   );
 
   constructor() {
+    afterNextRender(() => {
+      const stored = localStorage.getItem('theme') as 'light' | 'dark' | 'auto' | null;
+      if (stored) {
+        this.pref.set(stored);
+      }
+
+      const mql = window.matchMedia('(prefers-color-scheme: light)');
+      this.systemIsLight.set(mql.matches);
+      mql.addEventListener('change', (e) => this.systemIsLight.set(e.matches));
+    });
+
     effect(() => {
+      if (typeof document === 'undefined') {
+        return;
+      }
       document.documentElement.setAttribute('data-bs-theme', this.resolved());
       localStorage.setItem('theme', this.pref());
     });
-
-    this.systemPrefersLight.addEventListener('change', (e) => {
-      this.systemIsLight.set(e.matches); // aqui SIM muda de valor, dispara o effect
-    });
   }
 
-  setTheme(choice: string) {
+  setTheme(choice: 'light' | 'dark' | 'auto') {
     this.pref.set(choice);
   }
 }

@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 /* ─── CSS Variables ───────────────────────────────────────────── */
+
+@use 'mixins' as m;
+
 :root,
 [data-bs-theme="dark"] {
   --bg: #0e0f11;
@@ -7,24 +10,18 @@
   --bg3: #0a0b0d;
   --text: #e8eaed;
   --muted: #888c94;
-  --purple: #8aa0c9;
-  --green: #c7d2e4;
-  --cyan: #a9bedd;
-  --pink: #7387b0;
-  --red: #4a5f8c;
-  --orange: #5f76a0;
+  --accent: #8aa0c9;
+  --accent-alt: #a9bedd;
+  --highlight: #c7d2e4;
 
   --bg-rgb: 14, 15, 17;
   --bg2-rgb: 26, 28, 32;
   --bg3-rgb: 10, 11, 13;
   --text-rgb: 232, 234, 237;
   --muted-rgb: 136, 140, 148;
-  --purple-rgb: 138, 160, 201;
-  --green-rgb: 199, 210, 228;
-  --cyan-rgb: 169, 190, 221;
-  --pink-rgb: 115, 135, 176;
-  --red-rgb: 74, 95, 140;
-  --orange-rgb: 95, 118, 160;
+  --accent-rgb: 138, 160, 201;
+  --accent-alt-rgb: 169, 190, 221;
+  --highlight-rgb: 199, 210, 228;
 }
 
 [data-bs-theme="light"] {
@@ -33,24 +30,18 @@
   --bg3: #ffffff;
   --text: #1b1d21;
   --muted: #5b5f68;
-  --purple: #3f5a86;
-  --green: #1f2e47;
-  --cyan: #2c4468;
-  --pink: #4f6b99;
-  --red: #7c93bd;
-  --orange: #6280ac;
+  --accent: #3f5a86;
+  --accent-alt: #2c4468;
+  --highlight: #1f2e47;
 
   --bg-rgb: 245, 246, 248;
   --bg2-rgb: 236, 238, 241;
   --bg3-rgb: 255, 255, 255;
   --text-rgb: 27, 29, 33;
   --muted-rgb: 91, 95, 104;
-  --purple-rgb: 63, 90, 134;
-  --green-rgb: 31, 46, 71;
-  --cyan-rgb: 44, 68, 104;
-  --pink-rgb: 79, 107, 153;
-  --red-rgb: 124, 147, 189;
-  --orange-rgb: 98, 128, 172;
+  --accent-rgb: 63, 90, 134;
+  --accent-alt-rgb: 44, 68, 104;
+  --highlight-rgb: 31, 46, 71;
 }
 
 :root {
@@ -58,7 +49,6 @@
   --font-body: "DM Sans", sans-serif;
 }
 
-/* ─── Reset & Base ────────────────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -78,7 +68,7 @@ body {
   font-size: 1rem;
   line-height: 1.7;
   overflow-x: hidden;
-  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  @include m.theme-transition();
 }
 
 /* ─── Noise texture overlay ───────────────────────────────────── */
@@ -118,20 +108,16 @@ footer {
   font-family: var(--font-mono), sans-serif;
 }
 
-.text-purple {
-  color: var(--purple) !important;
+.text-accent {
+  color: var(--accent) !important;
 }
 
-.text-green {
-  color: var(--green) !important;
+.text-highlight {
+  color: var(--highlight) !important;
 }
 
-.text-cyan {
-  color: var(--cyan) !important;
-}
-
-.text-pink {
-  color: var(--pink) !important;
+.text-accent-alt {
+  color: var(--accent-alt) !important;
 }
 
 .text-muted-custom {
@@ -142,7 +128,7 @@ footer {
 .section-tag {
   font-family: var(--font-mono), sans-serif;
   font-size: 0.75rem;
-  color: var(--green);
+  color: var(--highlight);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
@@ -157,64 +143,62 @@ footer {
 }
 
 .section-title span {
-  color: var(--purple);
+  color: var(--accent);
 }
 
 .section-divider {
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, var(--purple), var(--cyan));
+  background: linear-gradient(90deg, var(--accent), var(--accent-alt));
   margin-bottom: 2.5rem;
 }
 
 /* ─── Botões (usados em hero E contact) ─────────────────────────── */
-.btn-primary-custom {
-  background: var(--green);
-  color: var(--bg);
-  border: none;
-  padding: 0.75rem 2rem;
-  font-family: var(--font-mono), sans-serif;
-  font-size: 0.85rem;
+.btn-portfolio {
+  --bs-btn-font-family: var(--font-mono), sans-serif;
+  --bs-btn-font-size: 0.85rem;
+  --bs-btn-padding-x: 2rem;
+  --bs-btn-padding-y: 0.75rem;
+  --bs-btn-border-radius: 4px;
+  letter-spacing: 0.08em;
+  @include m.theme-transition();
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.btn-portfolio-solid {
+  --bs-btn-bg: var(--highlight);
+  --bs-btn-color: var(--bg);
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-bg: var(--highlight);
+  --bs-btn-hover-color: var(--bg);
+  --bs-btn-hover-border-color: transparent;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  border-radius: 4px;
-  transition: transform 0.2s, box-shadow 0.2s;
-  text-decoration: none;
-  display: inline-block;
+
+  &:hover {
+    box-shadow: 0 10px 30px rgba(var(--highlight-rgb), 0.25);
+  }
 }
 
-.btn-primary-custom:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(var(--green-rgb), 0.25);
-  color: var(--bg);
-}
+.btn-portfolio-outline {
+  --bs-btn-color: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-bg: rgba(var(--accent-rgb), 0.1);
+  --bs-btn-hover-color: var(--accent);
+  --bs-btn-hover-border-color: var(--accent);
 
-.btn-outline-custom {
-  background: transparent;
-  color: var(--purple);
-  border: 1px solid var(--purple);
-  padding: 0.75rem 2rem;
-  font-family: var(--font-mono), sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  border-radius: 4px;
-  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.btn-outline-custom:hover {
-  background: rgba(var(--purple-rgb), 0.1);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(var(--purple-rgb), 0.15);
-  color: var(--purple);
+  &:hover {
+    box-shadow: 0 10px 30px rgba(var(--accent-rgb), 0.15);
+  }
 }
 
 /* ─── Fade-in animation (usado por appFadeUp em vários componentes) ── */
 .fade-up {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  @include m.entrance-transition(1.0s);
 }
 
 .fade-up.visible {

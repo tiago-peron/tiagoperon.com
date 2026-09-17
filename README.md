@@ -2,8 +2,7 @@
 
 Portfólio pessoal de **Tiago Peron**, Desenvolvedor Java Full-Stack. Single-page application construída com **Angular 22**, Bootstrap 5 e muita atenção aos detalhes.
 
-**[tiagoperon.com.br](https://tiagoperon.com.br/)**
-**[perondev.com](https://perondev.com/)**
+**[tiagoperon.com](https://tiagoperon.com/)**
 
 ## Funcionalidades
 
@@ -69,7 +68,6 @@ src/
 
 **Tiago Peron** — Desenvolvedor Java Full-Stack
 
-- 🌐 [tiagoperon.com.br](https://tiagoperon.com.br/)
-- 🌐 [perondev.com](https://perondev.com/)
+- 🌐 [tiagoperon.com](https://tiagoperon.com/)
 - 💼 [linkedin.com/in/tperons](https://www.linkedin.com/in/tiago-peron/)
 - 🐙 [github.com/tperons](https://github.com/tiago-peron)

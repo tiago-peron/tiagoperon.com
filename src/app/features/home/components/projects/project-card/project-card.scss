@@ -1,17 +1,17 @@
+@use 'mixins' as m;
+
 .project-card {
-  background: var(--bg2);
-  border: 1px solid rgba(var(--muted-rgb), 0.2);
-  border-radius: 12px;
+  --bs-card-bg: var(--bg2);
+  --bs-card-border-color: rgba(var(--muted-rgb), 0.2);
+  --bs-card-border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.25s ease, color 0.25s ease;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  @include m.theme-transition();
 
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-    border-color: var(--purple);
+    border-color: var(--accent);
   }
 }
 
@@ -32,11 +32,11 @@
   color: var(--muted);
   font-size: 1.2rem;
   margin-left: 0.75rem;
-  transition: color 0.2s;
   text-decoration: none;
+  @include m.theme-transition();
 
   &:hover {
-    color: var(--purple);
+    color: var(--accent);
   }
 }
 
@@ -63,22 +63,18 @@
 }
 
 .tech-badge {
-  display: inline-block;
-  padding: 0.25rem 0.65rem;
-  border-radius: 4px;
+  background: rgba(var(--muted-rgb), 0.1);
+  border: 1px solid rgba(var(--muted-rgb), 0.25);
+  color: var(--muted);
   font-family: var(--font-mono), sans-serif;
   font-size: 0.7rem;
-  font-weight: 700;
   letter-spacing: 0.04em;
   margin: 0.2rem 0.15rem;
-  background: rgba(var(--muted-rgb), 0.1);
-  color: var(--muted);
-  border: 1px solid rgba(var(--muted-rgb), 0.25);
-  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  @include m.theme-transition();
 
   &:hover {
-    background: rgba(var(--cyan-rgb), 0.12);
-    color: var(--cyan);
-    border-color: rgba(var(--cyan-rgb), 0.3);
+    background: rgba(var(--accent-alt-rgb), 0.125);
+    color: var(--accent-alt);
+    border-color: rgba(var(--accent-alt-rgb), 0.30);
   }
 }

@@ -1,6 +1,6 @@
-import {Injectable, signal} from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class ActiveSectionService {
   activeId = signal('');
 
@@ -11,7 +11,7 @@ export class ActiveSectionService {
           if (entry.isIntersecting) this.activeId.set(entry.target.id);
         });
       },
-      {rootMargin: '-40% 0px -55% 0px'}
+      { rootMargin: '-40% 0px -55% 0px' },
     );
     sections.forEach((s) => observer.observe(s));
   }
