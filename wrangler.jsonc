@@ -3,7 +3,7 @@
   "name": "tiagoperon",
   "compatibility_date": "2026-08-03",
   "assets": {
-    "directory": "dist/portfolio/browser",
+    "directory": "dist/tiagoperon/browser",
     "not_found_handling": "single-page-application"
   }
 }
