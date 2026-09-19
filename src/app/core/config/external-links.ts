@@ -6,7 +6,7 @@ export const EXTERNAL_LINKS = {
   github: 'https://github.com/tiago-peron',
   linkedin: 'https://linkedin.com/in/tiago-peron',
   cvUrl: '/curriculo.pdf',
-  imageUrl: '/tiago-peron.jpg',
+  imageUrl: '/images/profile-photo.jpg',
   siteUrl: environment.siteUrl,
 
   simplePayDemo: 'https://simplepay.tiagoperon.com/docs.html',
