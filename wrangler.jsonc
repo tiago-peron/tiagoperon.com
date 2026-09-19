@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "portfolio",
+  "name": "tiagoperon",
   "compatibility_date": "2026-08-03",
   "assets": {
     "directory": "dist/portfolio/browser",
