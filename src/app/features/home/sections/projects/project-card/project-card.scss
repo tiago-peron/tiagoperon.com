@@ -28,15 +28,17 @@
   font-size: 1.8rem;
 }
 
-.project-links a {
-  color: var(--muted);
-  font-size: 1.2rem;
-  margin-left: 0.75rem;
-  text-decoration: none;
-  @include m.theme-transition();
+.project-links {
+  a {
+    color: var(--muted);
+    font-size: 1.2rem;
+    margin-left: 0.75rem;
+    text-decoration: none;
+    @include m.theme-transition();
 
-  &:hover {
-    color: var(--accent);
+    &:hover {
+      color: var(--accent);
+    }
   }
 }
 

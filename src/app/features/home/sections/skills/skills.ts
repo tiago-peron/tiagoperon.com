@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FadeUp } from '../../../../shared/directives/fade-up';
-import { SKILLS } from '../../../../core/models/skills.data';
+import { PRIMARY_SKILLS, SECONDARY_SKILLS } from '../../data/skills.data';
 
 @Component({
   selector: 'app-skills-section',
@@ -9,5 +9,6 @@ import { SKILLS } from '../../../../core/models/skills.data';
   styleUrl: './skills.scss',
 })
 export class Skills {
-  skills = SKILLS;
+  primarySkills = PRIMARY_SKILLS;
+  secondarySkills = SECONDARY_SKILLS;
 }

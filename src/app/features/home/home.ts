@@ -1,9 +1,9 @@
 import { afterNextRender, Component, inject } from '@angular/core';
-import { Hero } from './components/hero/hero';
-import { About } from './components/about/about';
-import { Skills } from './components/skills/skills';
-import { Projects } from './components/projects/projects';
-import { Contact } from './components/contact/contact';
+import { Hero } from './sections/hero/hero';
+import { About } from './sections/about/about';
+import { Skills } from './sections/skills/skills';
+import { Projects } from './sections/projects/projects';
+import { Contact } from './sections/contact/contact';
 import { ActiveSectionService } from '../../core/services/active-section';
 
 @Component({

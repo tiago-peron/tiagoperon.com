@@ -1,5 +1,5 @@
 import { Project } from '../models/project.model';
-import { EXTERNAL_LINKS } from '../config/external-links';
+import { EXTERNAL_LINKS } from '../../../core/config/external-links';
 
 export const PROJECTS: Project[] = [
   {

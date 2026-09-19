@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FadeUp } from '../../../../shared/directives/fade-up';
 import { ProjectCard } from './project-card/project-card';
-import { PROJECTS } from '../../../../core/models/projects.data';
+import { PROJECTS } from '../../data/projects.data';
 
 @Component({
   selector: 'app-project-section',

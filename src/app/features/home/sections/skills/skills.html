@@ -1,0 +1,41 @@
+<section id="skills">
+  <div class="container">
+    <div class="text-center mb-5 fade-up" appFadeUp>
+      <p class="section-tag">// habilidades técnicas</p>
+      <h2 class="section-title">Minha <span>stack</span> principal</h2>
+      <div class="section-divider mx-auto"></div>
+    </div>
+
+    <div class="skills-grid">
+      @for (skill of primarySkills; track skill.name) {
+        <div class="fade-up" appFadeUp>
+          <div class="card skill-card">
+        <span class="icon" [style.color]="skill.iconColor" aria-hidden="true">
+          <i [class]="skill.icon"></i>
+        </span>
+            <span class="name">{{ skill.name }}</span>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="text-center fade-up" appFadeUp>
+      <h3 class="skills-subtitle"><span>Frontend</span></h3>
+      <div class="section-divider mx-auto"></div>
+    </div>
+
+    <div class="skills-grid skills-grid--secondary">
+      @for (skill of secondarySkills; track skill.name) {
+        <div class="fade-up" appFadeUp>
+          <div class="card skill-card">
+        <span class="icon" [style.color]="skill.iconColor" aria-hidden="true">
+          <i [class]="skill.icon"></i>
+        </span>
+            <span class="name">{{ skill.name }}</span>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>
