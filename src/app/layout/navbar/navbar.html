@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg" [class.scrolled]="scrolled()">
   <div class="container">
-    <a class="navbar-brand" href="#hero">
-      <span><</span>Dev<span>/></span>
+    <a class="navbar-brand" href="#hero" aria-label="Tiago Peron - início">
+      <span aria-hidden="true">&lt;</span>Tiago<span aria-hidden="true">/&gt;</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navmenu" aria-controls="navmenu" aria-expanded="false"
@@ -12,35 +12,39 @@
       <ul class="navbar-nav gap-1">
         <li class="nav-item">
           <a class="nav-link" href="#about"
-             [class.active]="activeSectionService.activeId() === 'about'">Sobre</a>
+             [class.active]="activeSectionService.activeId() === 'about'"
+             [attr.aria-current]="activeSectionService.activeId() === 'about' ? 'location' : null">Sobre</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#skills"
-             [class.active]="activeSectionService.activeId() === 'skills'">Skills</a>
+             [class.active]="activeSectionService.activeId() === 'skills'"
+             [attr.aria-current]="activeSectionService.activeId() === 'skills' ? 'location' : null">Skills</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#projects"
-             [class.active]="activeSectionService.activeId() === 'projects'">Projetos</a>
+             [class.active]="activeSectionService.activeId() === 'projects'"
+             [attr.aria-current]="activeSectionService.activeId() === 'projects' ? 'location' : null">Projetos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#contact"
-             [class.active]="activeSectionService.activeId() === 'contact'">Contato</a>
+             [class.active]="activeSectionService.activeId() === 'contact'"
+             [attr.aria-current]="activeSectionService.activeId() === 'contact' ? 'location' : null">Contato</a>
         </li>
         <li class="nav-item ms-lg-3 d-flex align-items-center">
           <div class="theme-switch" role="group" aria-label="Selecionar tema">
             <button class="theme-btn" type="button" [class.active]="themeService.pref() === 'light'"
-                    (click)="themeService.setTheme('light')" title="Light theme"
-                    aria-label="Tema claro">
+                    [attr.aria-pressed]="themeService.pref() === 'light'"
+                    (click)="themeService.setTheme('light')" title="Tema claro" aria-label="Tema claro">
               <i class="bi bi-sun-fill" aria-hidden="true"></i>
             </button>
             <button class="theme-btn" type="button" [class.active]="themeService.pref() === 'dark'"
-                    (click)="themeService.setTheme('dark')" title="Dark theme"
-                    aria-label="Tema escuro">
+                    [attr.aria-pressed]="themeService.pref() === 'dark'"
+                    (click)="themeService.setTheme('dark')" title="Tema escuro" aria-label="Tema escuro">
               <i class="bi bi-moon-fill" aria-hidden="true"></i>
             </button>
             <button class="theme-btn" type="button" [class.active]="themeService.pref() === 'auto'"
-                    (click)="themeService.setTheme('auto')" title="Auto theme"
-                    aria-label="Tema automático">
+                    [attr.aria-pressed]="themeService.pref() === 'auto'"
+                    (click)="themeService.setTheme('auto')" title="Tema automático" aria-label="Tema automático">
               <i class="bi bi-circle-half" aria-hidden="true"></i>
             </button>
           </div>
