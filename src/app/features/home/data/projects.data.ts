@@ -31,4 +31,20 @@ export const PROJECTS: Project[] = [
       { name: 'Docker' },
     ],
   },
+  {
+    title: 'Task Scheduler',
+    description:
+      'Monorepo de microsserviços Java/Spring Boot para um agendador de tarefas, organizado em um único repositório.',
+    githubUrl: EXTERNAL_LINKS.github + '/task-scheduler',
+    techs: [
+      { name: 'Java' },
+      { name: 'Spring Boot' },
+      { name: 'Spring Cloud OpenFeign' },
+      { name: 'Spring Boot Mail' },
+      { name: 'PostgreSQL' },
+      { name: 'MongoDB' },
+      { name: 'Redis' },
+      { name: 'Docker' },
+    ],
+  },
 ];
