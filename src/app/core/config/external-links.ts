@@ -5,7 +5,7 @@ export const EXTERNAL_LINKS = {
   email: 'tperons@gmail.com',
   github: 'https://github.com/tiago-peron',
   linkedin: 'https://linkedin.com/in/tiago-peron',
-  cvUrl: '/curriculo.pdf',
+  cvUrl: '/resume.pdf',
   imageUrl: '/images/profile-photo.jpg',
   siteUrl: environment.siteUrl,
 
